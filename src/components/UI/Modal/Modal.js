@@ -1,25 +1,32 @@
-import React from 'react';
+import React , {Component} from 'react';
 
 import classes from './Modal.module.css';
 import Auxi from '../../../hoc/Auxi';
 import Backdrop from '../Backdrop/Backdrop';
 
-const Modal = (props) => {
+class  Modal extends Component {
 
+    shouldComponentUpdate (nextProos, nextState) {
+        return (nextProos.show !== this.props.show || nextProos.children !== this.props.children);
+    }
     
-    return (
+
+    render () 
+    {
+        return (
         <Auxi>
             
-        <Backdrop show={props.ordered}  canceled={props.orderCanceled}/>
+        <Backdrop show={this.props.ordered}  canceled={this.props.orderCanceled}/>
         <div className={classes.Modal}
         style={{
-            transform: props.ordered ? 'translateY(0)' : 'translateY(-100vh)' ,
-            opacity: props.ordered ? '1' : '0'
+            transform: this.props.ordered ? 'translateY(0)' : 'translateY(-100vh)' ,
+            opacity: this.props.ordered ? '1' : '0'
         }}>
-            {props.children};
+            {this.props.children};
         </div>
         </Auxi>
-    )
+    );
+}
 
 
 

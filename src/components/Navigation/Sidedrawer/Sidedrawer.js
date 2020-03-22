@@ -4,7 +4,7 @@ import Navigationitems from '../NavigationItems/Navigationitems';
 import classes from './Sidedrawer.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import Auxi from '../../../hoc/Auxi';
-import { checkPropTypes } from 'prop-types';
+
 
 const Sidedrawer = (props) => {
 
