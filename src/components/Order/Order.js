@@ -2,12 +2,16 @@ import React from 'react';
 import classes from './Order.module.css';
 
 
-const Order = () => {
+const Order = (props) => {
+
+    const ingredients = props.ingredients.map(ingredient => {
+        return (<p>{ingredient}</p>);
+    });
 
     return (
         <div className={classes.Order}>
-            <p>Ingredients: Salad(1)</p>
-            <p>Price: 5.0 $</p>
+            <p>{ingredients}</p>
+            <p>{props.price}</p>
         </div>
     );
 
