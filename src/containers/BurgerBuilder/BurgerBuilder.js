@@ -5,9 +5,9 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import * as actionTypes from '../../store/actions';
+import burgerBuilderActions from '../../store/actions/index';
+
 
 
 
@@ -146,8 +146,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onIngredientAdded: (ing) => dispatch({type: 'ADD_INGREDIENT' , ingredientType: ing }) ,
-        onIngredientRemoved: (ing) => dispatch({type: 'REMOVE_INGREDIENT' , ingredientType: ing })
+        onIngredientAdded: (ing) => dispatch(burgerBuilderActions.add_ingredients(ing)) ,
+        onIngredientRemoved: (ing) => dispatch(burgerBuilderActions.remove_ingredients(ing))
     }
 }
 
